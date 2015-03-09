@@ -1,0 +1,1101 @@
+
+
+Modified on staging dated 14 jan 2015:
+
+	PAGE 					Comments
+
+	autocomplete.php		home page search box
+
+	
+
+Staging :
+
+define("DB_HOST", "192.168.1.141");
+define("DB_USER", "gadgets_user");
+define("DB_PASSWORD", "St@gEG@dgEtS");
+define("DB_NAME", "staging_gadgets_india");
+
+
+mysqldump -h 192.168.1.141 -ugadgets_user -p staging_gadgets_india > gadgets.sql
+
+
+
+More on :
+
+$oProduct->moreOnCar($category_id,$top_competitor_brand_id,$top_competitor_model_id,$top_competitor_product_id)
+
+Similar Mobiles :
+
+As per logics
+
+
+Trending Now :
+
+	http://local.gadgets.in/admin/ajax/trending_product_dashboard.php?catid=1&startlimit=&cnt=
+
+
+
+	Array
+(
+    [0] => Array
+        (
+            [trending_product_id] => 1
+            [category_id] => 1
+            [brand_id] => 39
+            [product_info_id] => 0
+            [product_id] => 2
+            [status] => 1
+            [product_position] => 1
+            [create_date] => 2014-09-17 16:59:39
+            [update_date] => 0000-00-00 00:00:00
+        )
+
+)
+
+
+
+Other mobiles :
+
+	http://local.gadgets.in/admin/ajax/other_product_dashboard.php?catid=1&startlimit=&cnt=
+
+
+
+
+$seoUrlArr[] = SEO_WEB_URL;
+$seoUrlArr[] = $cat_path;
+$seoUrlArr[] = constructUrl($brand_name);
+$result[$i]['brand_url'] = implode('/', $seoUrlArr);
+
+
+
+Logic for similar gadgets:
+Characteristics: 
+Network Type: Same as of particular gadget - GSM, CDMA
+Phone Type: Same as of particular gadget - Tablet, Smart Phone
+Screen size: Same range as of particular gadget - 
+Price: Same range as of particular gadget
+
+
+
+
+INSERT INTO TOP_COMPETITOR(`category_id`,`brand_id`,`product_id`,`product_info_id`,`brand_ids`,`product_ids`,`product_info_ids`,`status`,`position`,`create_date`) VALUES('1','5','1176','9696684','23','992','6596028','1','1','2014-12-02 19:48:21'),('1','5','1176','9696684','23','740','641904','1','2','2014-12-02 19:48:21')
+
+INSERT INTO TOP_COMPETITOR(`category_id`,`brand_id`,`product_id`,`product_info_id`,`brand_ids`,`product_ids`,`product_info_ids`,`status`,`position`,`create_date`) VALUES('1','5','1176','9696684','23','992','6596028','1','1','2014-12-02 19:49:43'),('1','5','1176','9696684','23','740','641904','1','2','2014-12-02 19:49:43');
+
+
+
+
+// solr query
+
+
+http://192.168.1.50:8984/solr/gadgets/select?
+q=
+variant_value=[100 TO 68900] AND ( brand_name = "Motorola" )
+&sort=variant_value+asc
+&start=
+&rows=
+&wt=json
+&indent=true
+&group=true
+&group.field=product_name
+
+
+http://192.168.1.50:8984/solr/gadgets/select?q=variant_value%3A%5B100%20TO%2068900%5D%20and%20%28%20brand_name%3A%22Motorola%22%29&sort=variant_value+asc&wt=json&indent=true&start=0&row=10
+
+
+
+
+
+select * FROM PRICE_VARIANT_VALUES,PRODUCT_NAME_INFO,PRODUCT_MASTER where PRICE_VARIANT_VALUES.variant_value>=100 and PRICE_VARIANT_VALUES.variant_value<=68900 and PRICE_VARIANT_VALUES.variant_id = 1 and PRICE_VARIANT_VALUES.status = 1 and PRODUCT_MASTER.product_id = PRICE_VARIANT_VALUES.product_id and PRICE_VARIANT_VALUES.default_city=1 and PRODUCT_MASTER.product_name = PRODUCT_NAME_INFO.product_info_name and PRODUCT_NAME_INFO.status=1 and PRICE_VARIANT_VALUES.color_id = 0 and PRODUCT_MASTER.category_id in(1) and PRODUCT_MASTER.brand_id in(4) and PRODUCT_MASTER.status=1 and (PRODUCT_MASTER.discontinue_date >= '1970-01-01 00:00:00' OR PRODUCT_MASTER.discontinue_date = '0000-00-00 00:00:00') order by PRICE_VARIANT_VALUES.variant_value asc limit 10
+
+
+
+
+
+
+
+    [0] => Array
+        (
+            [price_variant] => 86
+            [category_id] => 1
+            [brand_id] => 4
+            [product_id] => 86
+            [country_id] => 0
+            [state_id] => 0
+            [city_id] => 0
+            [color_id] => 0
+            [variant_value] => 1123
+            [variant_id] => 1
+            [default_city] => 1
+            [status] => 1
+            [create_date] => 2014-05-02 16:47:49
+            [update_date] => 2014-05-02 16:47:49
+            [product_name_id] => 86
+            [seo_path] => wx180
+            [product_info_name] => WX180
+            [tags] => 
+            [abstract] => 
+            [product_name_desc] => 
+            [media_id] => 0
+            [video_path] => 
+            [img_media_id] => 299
+            [image_path] => data/mobile/image/9/299/ea1dc59446ac14f9742ee2fddde84f67_120X160_1.jpg
+            [arrival_date] => 0000-00-00
+            [discontinue_flag] => 1
+            [upcoming_flag] => 0
+            [discontinue_date] => 0000-00-00 00:00:00
+            [uid] => 0
+            [product_name] => WX180
+            [product_full_name] => Motorola WX180 
+            [variant] => 
+            [product_desc] => Motorola WX180 is a low cost mobile with basic features like FM Radio with RDS, Long life battery, USB, Built-in Games and MIDI ring tones.
+            [year] => 0000
+            [bgrrating] => 0
+            [announced_date] => 2010-02-01 00:00:00
+            [model_image_path] => 
+            [model_image_id] => 0
+            [short_desc] => Array
+                (
+                    [0] => Screen Size: 1.5 inches
+                    [1] => Processor: NA
+                    [2] => Operating System: NA
+                    [3] => Camera: NA
+                    [4] => Battery: 17 Days
+                    [5] => Network: GSM
+                )
+
+        )
+
+
+
+
+
+
+SELECT 
+P.category_id,
+P.create_date, 
+P.update_date, 
+B.seo_path as brand_seo_path, 
+M.seo_path as model_seo_path, 
+P.seo_path as variant_seo_path, 
+M.product_info_name,
+M.media_id as model_media_id,
+P.media_id as variant_media_id,
+M.video_path as model_video_path,
+P.video_path as variant_video_path,
+M.img_media_id as model_img_media_id,
+P.img_media_id as variant_img_media_id,
+M.image_path as model_image_path,
+P.image_path as variant_image_path,
+P.product_full_name,
+P.product_desc,
+P.year,
+P.bgrrating,
+date_format(P.arrival_date, '%Y-%m-%dT%H:%i:%sZ') as arrival_date, date_format(P.announced_date, '%Y-%m-%dT%H:%i:%sZ') as announced_date,date_format(P.discontinue_date, '%Y-%m-%dT%H:%i:%sZ')  as discontinue_date,B.brand_name , B.brand_id , M.product_info_name, P.product_id as product_id, P.variant , PR.variant_value , PR.default_city , P.discontinue_flag , B.short_desc , B.brand_image , M.product_name_id , M.product_name_desc , P.product_name,P.category_id FROM BRAND_MASTER B, PRODUCT_NAME_INFO M, PRODUCT_MASTER P, PRICE_VARIANT_VALUES PR  WHERE B.brand_id = M.brand_id AND M.brand_id = P.brand_id AND M.product_info_name = P.product_name AND P.product_id = PR.product_id AND PR.default_city =1 AND PR.variant_id =1  AND P.status =1 AND M.status=1 AND ((P.discontinue_date BETWEEN DATE_SUB( date(now( )) , INTERVAL 3 MONTH ) AND date(now())) OR P.discontinue_date = '0000-00-00 00:00:00')
+
+
+
+SELECT P.product_id, B.brand_name, P.product_name, P.variant, FSG.sub_group_name, F.feature_id as feature_id, F.feature_name, PF.feature_value,concat(F.feature_name,'=',PF.feature_value) as feature_name_value FROM FEATURE_MASTER F, PRODUCT_FEATURE PF, FEATURE_SUB_GROUP FSG, PRODUCT_MASTER P, BRAND_MASTER B WHERE F.feature_id = PF.feature_id AND B.brand_id = P.brand_id AND P.product_id ='${variant_details.product_id}' AND P.product_id = PF.product_id AND F.feature_group = FSG.sub_group_id
+
+
+
+
+
+
+select product_id from PRODUCT_FEATURE where feature_value='yes' and feature_id in (79)
+
+
+
+
+select * FROM PRICE_VARIANT_VALUES,PRODUCT_NAME_INFO,PRODUCT_MASTER where PRICE_VARIANT_VALUES.variant_value>=100 and PRICE_VARIANT_VALUES.variant_value<=68900 and PRICE_VARIANT_VALUES.variant_id = 1 and PRICE_VARIANT_VALUES.status = 1 and PRODUCT_MASTER.product_id = PRICE_VARIANT_VALUES.product_id and PRICE_VARIANT_VALUES.default_city=1 and PRODUCT_MASTER.product_name = PRODUCT_NAME_INFO.product_info_name and PRODUCT_NAME_INFO.status=1 and PRICE_VARIANT_VALUES.color_id = 0 and PRODUCT_MASTER.category_id in(1) and PRODUCT_MASTER.brand_id in(4) and PRODUCT_MASTER.status=1 and (PRODUCT_MASTER.discontinue_date >= '1970-01-01 00:00:00' OR PRODUCT_MASTER.discontinue_date = '0000-00-00 00:00:00') order by PRICE_VARIANT_VALUES.variant_value asc limit 10
+
+Array
+(
+    [0] => Array
+        (
+            [price_variant] => 86
+            [category_id] => 1
+            [brand_id] => 4
+            [product_id] => 86
+            [country_id] => 0
+            [state_id] => 0
+            [city_id] => 0
+            [color_id] => 0
+            [variant_value] => 1123
+            [variant_id] => 1
+            [default_city] => 1
+            [status] => 1
+            [create_date] => 2014-05-02 16:47:49
+            [update_date] => 2014-05-02 16:47:49
+            [product_name_id] => 86
+            [seo_path] => wx180
+            [product_info_name] => WX180
+            [tags] => 
+            [abstract] => 
+            [product_name_desc] => 
+            [media_id] => 0
+            [video_path] => 
+            [img_media_id] => 299
+            [image_path] => data/mobile/image/9/299/ea1dc59446ac14f9742ee2fddde84f67_120X160_1.jpg
+            [arrival_date] => 0000-00-00
+            [discontinue_flag] => 1
+            [upcoming_flag] => 0
+            [discontinue_date] => 0000-00-00 00:00:00
+            [uid] => 0
+            [product_name] => WX180
+            [product_full_name] => Motorola WX180 
+            [variant] => 
+            [product_desc] => Motorola WX180 is a low cost mobile with basic features like FM Radio with RDS, Long life battery, USB, Built-in Games and MIDI ring tones.
+            [year] => 0000
+            [bgrrating] => 0
+            [announced_date] => 2010-02-01 00:00:00
+            [model_image_path] => 
+            [model_image_id] => 0
+            [short_desc] => Array
+                (
+                    [0] => Screen Size: 1.5 inches
+                    [1] => Processor: NA
+                    [2] => Operating System: NA
+                    [3] => Camera: NA
+                    [4] => Battery: 17 Days
+                    [5] => Network: GSM
+                )
+
+        )
+
+    [1] => Array
+        (
+            [price_variant] => 87
+            [category_id] => 1
+            [brand_id] => 4
+            [product_id] => 87
+            [country_id] => 0
+            [state_id] => 0
+            [city_id] => 0
+            [color_id] => 0
+            [variant_value] => 1199
+            [variant_id] => 1
+            [default_city] => 1
+            [status] => 1
+            [create_date] => 2014-04-24 12:30:48
+            [update_date] => 2014-04-24 12:30:48
+            [product_name_id] => 87
+            [seo_path] => wx181
+            [product_info_name] => WX181
+            [tags] => 
+            [abstract] => 
+            [product_name_desc] => 
+            [media_id] => 0
+            [video_path] => 
+            [img_media_id] => 151
+            [image_path] => data/mobile/image/1/151/5e92409611799049be4d8fdcf6700dea_120X160_1.jpg
+            [arrival_date] => 0000-00-00
+            [discontinue_flag] => 1
+            [upcoming_flag] => 0
+            [discontinue_date] => 0000-00-00 00:00:00
+            [uid] => 0
+            [product_name] => WX181
+            [product_full_name] => Motorola WX181 
+            [variant] => 
+            [product_desc] => Motorola WX181 is a basic classic candybar equipped with 1.45-inch color CSTN display as well as LED torch-light and FM radio with RDS.
+            [year] => 0000
+            [bgrrating] => 0
+            [announced_date] => 2010-07-01 00:00:00
+            [model_image_path] => 
+            [model_image_id] => 0
+            [short_desc] => Array
+                (
+                    [0] => Screen Size: 1.5 inches
+                    [1] => Processor: NA
+                    [2] => Operating System: NA
+                    [3] => Camera: NA
+                    [4] => Battery: 16 Days
+                    [5] => Network: GSM
+                )
+
+        )
+
+    [2] => Array
+        (
+            [price_variant] => 89
+            [category_id] => 1
+            [brand_id] => 4
+            [product_id] => 89
+            [country_id] => 0
+            [state_id] => 0
+            [city_id] => 0
+            [color_id] => 0
+            [variant_value] => 1199
+            [variant_id] => 1
+            [default_city] => 1
+            [status] => 1
+            [create_date] => 2014-04-16 10:50:45
+            [update_date] => 2014-04-16 10:50:45
+            [product_name_id] => 89
+            [seo_path] => wx265
+            [product_info_name] => WX265
+            [tags] => 
+            [abstract] => 
+            [product_name_desc] => 
+            [media_id] => 0
+            [video_path] => 
+            [img_media_id] => 153
+            [image_path] => data/mobile/image/3/153/03fa211c9f1597f91636e4c7eac8c357_120X160_1.jpg
+            [arrival_date] => 0000-00-00
+            [discontinue_flag] => 1
+            [upcoming_flag] => 0
+            [discontinue_date] => 0000-00-00 00:00:00
+            [uid] => 0
+            [product_name] => WX265
+            [product_full_name] => Motorola WX265 
+            [variant] => 
+            [product_desc] => Motorola WX265 is a classic clamshell phone. It sports Bluetooth 2.0, WAP browser, FM radio with RDS, audio player and microSD expansion slot that takes cards with capacity of up to 2GB.
+            [year] => 0000
+            [bgrrating] => 0
+            [announced_date] => 2010-07-01 00:00:00
+            [model_image_path] => 
+            [model_image_id] => 0
+            [short_desc] => Array
+                (
+                    [0] => Screen Size: 1.77 inches
+                    [1] => Processor: NA
+                    [2] => Operating System: NA
+                    [3] => Camera: NA
+                    [4] => Battery: 24 Days
+                    [5] => Network: GSM
+                )
+
+        )
+
+    [3] => Array
+        (
+            [price_variant] => 92
+            [category_id] => 1
+            [brand_id] => 4
+            [product_id] => 92
+            [country_id] => 0
+            [state_id] => 0
+            [city_id] => 0
+            [color_id] => 0
+            [variant_value] => 1379
+            [variant_id] => 1
+            [default_city] => 1
+            [status] => 1
+            [create_date] => 2014-04-16 10:57:09
+            [update_date] => 2014-04-16 10:57:09
+            [product_name_id] => 92
+            [seo_path] => wx290
+            [product_info_name] => WX290
+            [tags] => 
+            [abstract] => 
+            [product_name_desc] => 
+            [media_id] => 0
+            [video_path] => 
+            [img_media_id] => 157
+            [image_path] => data/mobile/image/7/157/69bf3ed0d4f783d4a5195aab15885ff5_120X160_1.jpg
+            [arrival_date] => 0000-00-00
+            [discontinue_flag] => 1
+            [upcoming_flag] => 0
+            [discontinue_date] => 0000-00-00 00:00:00
+            [uid] => 0
+            [product_name] => WX290
+            [product_full_name] => Motorola WX290 
+            [variant] => 
+            [product_desc] => The Motorola WX290 comes with 1.8-inch screen, built-in VGA camera, MMS capabilities, LED torch-light, Bluetooth 2.0, WAP 2.0 browser and FM radio with RDS.
+            [year] => 0000
+            [bgrrating] => 0
+            [announced_date] => 2010-07-01 00:00:00
+            [model_image_path] => 
+            [model_image_id] => 0
+            [short_desc] => Array
+                (
+                    [0] => Screen Size: 1.77 inches
+                    [1] => Processor: NA
+                    [2] => Operating System: NA
+                    [3] => Camera: NA
+                    [4] => Battery: 24 Days
+                    [5] => Network: GSM
+                )
+
+        )
+
+    [4] => Array
+        (
+            [price_variant] => 93
+            [category_id] => 1
+            [brand_id] => 4
+            [product_id] => 93
+            [country_id] => 0
+            [state_id] => 0
+            [city_id] => 0
+            [color_id] => 0
+            [variant_value] => 1499
+            [variant_id] => 1
+            [default_city] => 1
+            [status] => 1
+            [create_date] => 2014-04-16 10:57:52
+            [update_date] => 2014-04-16 10:57:52
+            [product_name_id] => 93
+            [seo_path] => wx295
+            [product_info_name] => WX295
+            [tags] => 
+            [abstract] => 
+            [product_name_desc] => 
+            [media_id] => 0
+            [video_path] => 
+            [img_media_id] => 158
+            [image_path] => data/mobile/image/8/158/78ca6b6331cee97c034e4a75d3ae65e2_120X160_1.jpg
+            [arrival_date] => 0000-00-00
+            [discontinue_flag] => 1
+            [upcoming_flag] => 0
+            [discontinue_date] => 0000-00-00 00:00:00
+            [uid] => 0
+            [product_name] => WX295
+            [product_full_name] => Motorola WX295 
+            [variant] => 
+            [product_desc] => The Motorola WX295 comes with 1.8-inch screen, built-in VGA camera, MMS capabilities, Bluetooth 2.0, WAP 2.0 browser and FM radio with RDS.
+            [year] => 0000
+            [bgrrating] => 0
+            [announced_date] => 2010-07-01 00:00:00
+            [model_image_path] => 
+            [model_image_id] => 0
+            [short_desc] => Array
+                (
+                    [0] => Screen Size: 1.8 inches
+                    [1] => Processor: NA
+                    [2] => Operating System: NA
+                    [3] => Camera: NA
+                    [4] => Battery: 24 Days
+                    [5] => Network: GSM
+                )
+
+        )
+
+    [5] => Array
+        (
+            [price_variant] => 88
+            [category_id] => 1
+            [brand_id] => 4
+            [product_id] => 88
+            [country_id] => 0
+            [state_id] => 0
+            [city_id] => 0
+            [color_id] => 0
+            [variant_value] => 1513
+            [variant_id] => 1
+            [default_city] => 1
+            [status] => 1
+            [create_date] => 2014-04-16 10:49:36
+            [update_date] => 2014-04-16 10:49:36
+            [product_name_id] => 88
+            [seo_path] => wx260
+            [product_info_name] => WX260
+            [tags] => 
+            [abstract] => 
+            [product_name_desc] => 
+            [media_id] => 0
+            [video_path] => 
+            [img_media_id] => 152
+            [image_path] => data/mobile/image/2/152/01dc10acb06d08a0e8910b62ad6dd09b_120X160_1.jpg
+            [arrival_date] => 0000-00-00
+            [discontinue_flag] => 1
+            [upcoming_flag] => 0
+            [discontinue_date] => 0000-00-00 00:00:00
+            [uid] => 0
+            [product_name] => WX260
+            [product_full_name] => Motorola WX260 
+            [variant] => 
+            [product_desc] => Motorola WX260 is a classic candybar phone. It sports Bluetooth 2.0, WAP browser, FM radio with RDS, audio player and microSD expansion slot that takes cards 
+with capacity of up to 2GB.
+            [year] => 0000
+            [bgrrating] => 0
+            [announced_date] => 2010-07-01 00:00:00
+            [model_image_path] => 
+            [model_image_id] => 0
+            [short_desc] => Array
+                (
+                    [0] => Screen Size: 1.8 inches
+                    [1] => Processor: NA
+                    [2] => Operating System: NA
+                    [3] => Camera: NA
+                    [4] => Battery: 24 Days
+                    [5] => Network: GSM
+                )
+
+        )
+
+    [6] => Array
+        (
+            [price_variant] => 90
+            [category_id] => 1
+            [brand_id] => 4
+            [product_id] => 90
+            [country_id] => 0
+            [state_id] => 0
+            [city_id] => 0
+            [color_id] => 0
+            [variant_value] => 1611
+            [variant_id] => 1
+            [default_city] => 1
+            [status] => 1
+            [create_date] => 2014-04-16 10:55:23
+            [update_date] => 2014-04-16 10:55:23
+            [product_name_id] => 90
+            [seo_path] => wx280
+            [product_info_name] => WX280
+            [tags] => 
+            [abstract] => 
+            [product_name_desc] => 
+            [media_id] => 0
+            [video_path] => 
+            [img_media_id] => 154
+            [image_path] => data/mobile/image/4/154/63cccfc79c6524cd35041c7332c411ce_120X160_1.jpg
+            [arrival_date] => 0000-00-00
+            [discontinue_flag] => 1
+            [upcoming_flag] => 0
+            [discontinue_date] => 0000-00-00 00:00:00
+            [uid] => 0
+            [product_name] => WX280
+            [product_full_name] => Motorola WX280 
+            [variant] => 
+            [product_desc] => The new Motorola WX280 is an affordable and Entry-level mobile phone with FM radio and Camera. It features Speaker phone, long-battery backup, mini USB and Games.
+            [year] => 0000
+            [bgrrating] => 0
+            [announced_date] => 0000-00-00 00:00:00
+            [model_image_path] => 
+            [model_image_id] => 0
+            [short_desc] => Array
+                (
+                    [0] => Screen Size: 1.8 inches
+                    [1] => Processor: NA
+                    [2] => Operating System: NA
+                    [3] => Camera: VGA, 640x480 pixels
+                    [4] => Battery: 23 days
+                    [5] => Network: GSM
+                )
+
+        )
+
+    [7] => Array
+        (
+            [price_variant] => 91
+            [category_id] => 1
+            [brand_id] => 4
+            [product_id] => 91
+            [country_id] => 0
+            [state_id] => 0
+            [city_id] => 0
+            [color_id] => 0
+            [variant_value] => 1663
+            [variant_id] => 1
+            [default_city] => 1
+            [status] => 1
+            [create_date] => 2014-04-16 10:56:10
+            [update_date] => 2014-04-16 10:56:10
+            [product_name_id] => 91
+            [seo_path] => wx288
+            [product_info_name] => WX288
+            [tags] => 
+            [abstract] => 
+            [product_name_desc] => 
+            [media_id] => 0
+            [video_path] => 
+            [img_media_id] => 155
+            [image_path] => data/mobile/image/5/155/7d8f206744accb941da211e4258793ed_120X160_1.jpg
+            [arrival_date] => 0000-00-00
+            [discontinue_flag] => 1
+            [upcoming_flag] => 0
+            [discontinue_date] => 0000-00-00 00:00:00
+            [uid] => 0
+            [product_name] => WX288
+            [product_full_name] => Motorola WX288 
+            [variant] => 
+            [product_desc] => Motorola WX288 is an Entry-level mobile phone having 
+innovative features like VGA Camera, Wireless Application Protocol, vcard exchange through MMS, FM Radio with RDS and mini USB.
+            [year] => 0000
+            [bgrrating] => 0
+            [announced_date] => 0000-00-00 00:00:00
+            [model_image_path] => 
+            [model_image_id] => 0
+            [short_desc] => Array
+                (
+                    [0] => Screen Size: 1.8 inches
+                    [1] => Processor: NA
+                    [2] => Operating System: NA
+                    [3] => Camera: VGA, 640x480 pixels
+                    [4] => Battery: 30 days
+                    [5] => Network: GSM
+                )
+
+        )
+
+    [8] => Array
+        (
+            [price_variant] => 94
+            [category_id] => 1
+            [brand_id] => 4
+            [product_id] => 94
+            [country_id] => 0
+            [state_id] => 0
+            [city_id] => 0
+            [color_id] => 0
+            [variant_value] => 1802
+            [variant_id] => 1
+            [default_city] => 1
+            [status] => 1
+            [create_date] => 2014-04-16 10:58:49
+            [update_date] => 2014-04-16 10:58:49
+            [product_name_id] => 94
+            [seo_path] => wx390
+            [product_info_name] => WX390
+            [tags] => 
+            [abstract] => 
+            [product_name_desc] => 
+            [media_id] => 0
+            [video_path] => 
+            [img_media_id] => 159
+            [image_path] => data/mobile/image/9/159/e8a55d295cf1c2d4e7cf54c05e02bb31_120X160_1.jpg
+            [arrival_date] => 0000-00-00
+            [discontinue_flag] => 1
+            [upcoming_flag] => 0
+            [discontinue_date] => 0000-00-00 00:00:00
+            [uid] => 0
+            [product_name] => WX390
+            [product_full_name] => Motorola WX390 
+            [variant] => 
+            [product_desc] => The new 
+Motorola WX390 is a stylish mobile with music player. It features VGA Camera, Micro SD card up to 2GB, Bluetooth, mini USB v2.0, Java MIDP 2.0 and MP3, WAV Ring tones.
+            [year] => 0000
+            [bgrrating] => 0
+            [announced_date] => 0000-00-00 00:00:00
+            [model_image_path] => 
+            [model_image_id] => 0
+            [short_desc] => Array
+                (
+                    [0] => Screen Size: 1.8 inches
+                    [1] => Processor: NA
+                    [2] => Operating System: NA
+                    [3] => Camera: VGA, 640x480 pixels
+                    [4] => Battery: 16 Days
+                    [5] => Network: GSM
+                )
+
+        )
+
+    [9] => Array
+        (
+            [price_variant] => 95
+            [category_id] => 1
+            [brand_id] => 4
+            [product_id] => 95
+            [country_id] => 0
+            [state_id] => 0
+            [city_id] => 0
+            [color_id] => 0
+            [variant_value] => 2167
+            [variant_id] => 1
+            [default_city] => 1
+            [status] => 1
+            [create_date] => 2014-04-16 10:59:31
+            [update_date] => 2014-04-16 10:59:31
+            [product_name_id] => 95
+            [seo_path] => wx395
+            [product_info_name] => WX395
+            [tags] => 
+            [abstract] => 
+            [product_name_desc] => 
+            [media_id] => 0
+            [video_path] => 
+            [img_media_id] => 160
+            [image_path] => data/mobile/image/0/160/92caa07e9ce0c30118e4309b4af18ab2_120X160_1.jpg
+            [arrival_date] => 0000-00-00
+            [discontinue_flag] => 1
+            [upcoming_flag] => 0
+            [discontinue_date] => 0000-00-00 00:00:00
+            [uid] => 0
+            [product_name] => WX395
+            [product_full_name] => Motorola WX395 
+            [variant] => 
+            [product_desc] => Motorola WX395 is a slim and stylish mobile featuring 1.3 Mega Pixels Camera, Micro SD card up to 2GB, Currency converter, Bluetooth, Calculator and high speed USB 2.0
+            [year] => 0000
+            [bgrrating] => 0
+            [announced_date] => 0000-00-00 00:00:00
+            [model_image_path] => 
+            [model_image_id] => 0
+            [short_desc] => Array
+                (
+                    [0] => Screen Size: 1.75 inches
+                    [1] => Processor: NA
+                    [2] => Operating System: NA
+                    [3] => Camera: 1.3 MP, 1280x1024 pixels
+                    [4] => Battery: 20 days
+                    [5] => Network: GSM
+                )
+
+        )
+
+)
+
+http://192.168.1.50:8984/solr/gadgets/select?
+q=
+variant_value%3A%5B100%20TO%2068900%5D%20and%20%28%20brand_name%3A%22Motorola%22%29
+&sort=variant_value+asc
+&wt=json&indent=true&start=0&row=10
+
+
+
+[0] => Array
+        (
+            [price_variant] => 86
+            [category_id] => 1
+            [brand_id] => 4
+            [product_id] => 86
+            [country_id] => 0
+            [state_id] => 0
+            [city_id] => 0
+            [color_id] => 0
+            [variant_value] => 1123
+            [variant_id] => 1
+            [default_city] => 1
+            [status] => 1
+            [create_date] => 2014-05-02 16:47:49
+            [update_date] => 2014-05-02 16:47:49
+            [product_name_id] => 86
+            [seo_path] => wx180
+            [product_info_name] => WX180
+            [tags] => 
+            [abstract] => 
+            [product_name_desc] => 
+            [media_id] => 0
+            [video_path] => 
+            [img_media_id] => 299
+            [image_path] => data/mobile/image/9/299/ea1dc59446ac14f9742ee2fddde84f67_120X160_1.jpg
+            [arrival_date] => 0000-00-00
+            [discontinue_flag] => 1
+            [upcoming_flag] => 0
+            [discontinue_date] => 0000-00-00 00:00:00
+            [uid] => 0
+            [product_name] => WX180
+            [product_full_name] => Motorola WX180 
+            [variant] => 
+            [product_desc] => Motorola WX180 is a low cost mobile with basic features like FM Radio with RDS, Long life battery, USB, Built-in Games and MIDI ring tones.
+            [year] => 0000
+            [bgrrating] => 0
+            [announced_date] => 2010-02-01 00:00:00
+            [model_image_path] => 
+            [model_image_id] => 0
+            [short_desc] => Array
+                (
+                    [0] => Screen Size: 1.5 inches
+                    [1] => Processor: NA
+                    [2] => Operating System: NA
+                    [3] => Camera: NA
+                    [4] => Battery: 17 Days
+                    [5] => Network: GSM
+                )
+
+        )
+
+
+
+[0] => Array
+                        (
+                            [arrival_date] => 0002-11-29T18:30:00Z
+                            [announced_date] => 2010-01-31T18:30:00Z
+                            [id] => 86
+                            [product_id] => 86
+                            [product_name] => WX180
+                            [brand_id] => 4
+                            [product_discontinue] => 1
+                            [variant] => 
+                            [brand_name] => Motorola
+                            [brand_image] => 250px-motorola.svg.png
+                            [discontinue_date] => 0002-11-29T18:30:00Z
+                            [variant_value] => 1123
+                            [default_city] => 1
+                            [image_path] => 
+                            [product_name_id] => 86
+                            [feature_name_value] => Array
+                                (
+                                    [0] => 2010=YES
+                                    [1] => Battery Capacity (Qualtitative)=Low
+                                    [2] => Battery Life - Days of Use=17 Days
+                                    [3] => Battery Life - Qualitative=High
+                                    [4] => Battery Life  - Standby=Up to 400 h
+                                    [5] => Battery Life  - Talk Time=Up to 8 h
+                                    [6] => Camera resolution=NA
+                                    [7] => Camera Video Specs=NA
+                                    [8] => Secondary Camera=NA
+                                    [9] => EDGE Capability=No
+                                    [10] => Bluetooth=No
+                                    [11] => Wi-Fi=No
+                                    [12] => USB=miniUSB
+                                    [13] => Infrared Port=No
+                                    [14] => Display Technology=CSTN, 65K colors
+                                    [15] => Display Size (Qualitative)=1.5 inches
+                                    [16] => Display Description=NA
+                                    [17] => GPRS=No
+                                    [18] => EDGE=No
+                                    [19] => FM Radio=YES
+                                    [20] => Bar=YES
+                                    [21] => Device Type=Basic phone
+                                    [22] => Dual Sim Capability=No
+                                    [23] => Input Mechanism=AlphaNum
+                                    [24] => 2G Network Technology=GSM 900 / 1800
+                                    [25] => 3G Network Technology=No
+                                    [26] => Sales Package=one each of transceiver, battery 3.7Volt/650 mAh charger, 100-240 Vlot/5.0 Vlot, 500 mA battery door wired headset
+                                    [27] => Availability=Released 2010, February
+                                    [28] => 4G Network Technology=NO
+                                    [29] => Internet Capability=No
+                                    [30] => Installed Browser=NA
+                                    [31] => Browser Capability=No
+                                    [32] => GPS=No
+                                    [33] => Internal Memory=NA
+                                    [34] => SD Card Presence/Capacity=No
+                                    [35] => SMS=SMS
+                                    [36] => Call Records=10 dialed, 10 received, 10 missed calls
+                                    [37] => Music Player Features=NA
+                                    [38] => Video Player Features=NA
+                                    [39] => Video Recorder=NA
+                                    [40] => Radio=Yes
+                                    [41] => Radio Features=FM radio with RDS
+                                    [42] => 3.5 mm Jack=No
+                                    [43] => Loudspeaker=Yes
+                                    [44] => Youtube Player=No
+                                    [45] => Network Type=GSM
+                                    [46] => GSM=YES
+                                    [47] => 2G=YES
+                                    [48] => 3G=YES
+                                    [49] => 4G=YES
+                                    [50] => Single Sim=YES
+                                    [51] => Java Support=No
+                                    [52] => Games Support=Yes
+                                    [53] => Calendar=Yes
+                                    [54] => Calculator=Yes
+                                    [55] => Alarm=Yes
+                                    [56] => Clock=Yes
+                                    [57] => Phonebook=Yes
+                                    [58] => Phonebook Capacity=100 entries
+                                    [59] => Basic Phone=YES
+                                    [60] => Size(Qualitative)=Medium
+                                    [61] => Size (L by B by T)=106 x 46 x 14.5 mm, 70.7 cc
+                                    [62] => Length=106
+                                    [63] => Breadth=46
+                                    [64] => Thickness=14.5
+                                    [65] => Form Factor=Candybar
+                                    [66] => Weight=65
+                                    [67] => Weight Qualitative=Low
+                                    [68] => Up to 4.0=YES
+                                    [69] => OS=NA
+                                    [70] => Processor=NA
+                                )
+
+                            [overallcnt] => 0
+                            [iphotocnt] => 0
+                            [videocnt] => 0
+                            [_version_] => 1486471090122260480
+                        )        
+
+
+
+
+
+select * from CAR_FINDER_FEATURE_OVERVIEW_MASTER order by position asc
+
+*************************** 1. row ***************************
+          overview_id: 1
+overview_sub_group_id: 1
+          category_id: 1
+                title: Screen Size
+           feature_id: 13
+         abbreviation: 
+             position: 0
+               status: 1
+          create_date: 2014-11-04 11:50:38
+          update_date: 0000-00-00 00:00:00
+*************************** 2. row ***************************
+          overview_id: 2
+overview_sub_group_id: 1
+          category_id: 1
+                title: Processor
+           feature_id: 18
+         abbreviation: 
+             position: 0
+               status: 1
+          create_date: 2014-11-04 11:51:12
+          update_date: 0000-00-00 00:00:00
+*************************** 3. row ***************************
+          overview_id: 3
+overview_sub_group_id: 1
+          category_id: 1
+                title: Operating System
+           feature_id: 17
+         abbreviation: 
+             position: 0
+               status: 1
+          create_date: 2014-11-04 11:51:40
+          update_date: 0000-00-00 00:00:00
+*************************** 4. row ***************************
+          overview_id: 4
+overview_sub_group_id: 1
+          category_id: 1
+                title: Camera
+           feature_id: 19
+         abbreviation: 
+             position: 0
+               status: 1
+          create_date: 2014-11-04 11:52:21
+          update_date: 0000-00-00 00:00:00
+*************************** 5. row ***************************
+          overview_id: 5
+overview_sub_group_id: 1
+          category_id: 1
+                title: Battery
+           feature_id: 59
+         abbreviation: 
+             position: 0
+               status: 1
+          create_date: 2014-11-04 11:53:11
+          update_date: 0000-00-00 00:00:00
+*************************** 6. row ***************************
+          overview_id: 6
+overview_sub_group_id: 1
+          category_id: 1
+                title: Network
+           feature_id: 76
+         abbreviation: 
+             position: 0
+               status: 1
+          create_date: 2014-11-04 11:53:25
+          update_date: 0000-00-00 00:00:00
+6 rows in set (0.00 sec)
+
+
+select * from PRODUCT_FEATURE where feature_id in (select * from CAR_FINDER_FEATURE_OVERVIEW_MASTER order by position asc) and product_id = 200                        
+
+
+--------------------------------- Travel changes --------------------------------------
+
+
+yii/travelmap/protected/models/DestinationModel.php
+
+664,665c664,667
+<                 }
+< 		else {
+---
+>                 }elseif($_REQUEST['v'] == 'WGMap') {
+>                     $limitParams[] = "start=$yiistart";
+>                     $limitParams[] = "rows=$yiiitem_count";
+>                 }else {
+673c675
+<                 #echo $travelSolr; //die();
+---
+>                 //echo $travelSolr; //die();
+
+
+wp-content/themes/travel2014/page-weekend-single-map.php
+
+
+yii/travelmap/protected/config/map_config.php
+
+
+// center and zoom on markers
+    // defaults 
+    'CENTER_AND_ZOOM_ON_MARKERS_DEFAULT_MARGIN' => 0.5,
+    'CENTER_AND_ZOOM_ON_MARKERS_DEFAULT_ZOOM' => 14,
+            
+    'SET_MAP_WIDGET_CENTER_AND_ZOOM_ON_MARKERS' => 'FALSE',
+    'MAP_WIDGET_CENTER_AND_ZOOM_ON_MARKERS' => 0,
+    'MAP_WIDGET_CENTER_AND_ZOOM_ON_MARKERS_ZOOM' => 10,
+
+    'SET_MAP_WG_CENTER_AND_ZOOM_ON_MARKERS' => 'TRUE', 
+    'MAP_WG_CENTER_AND_ZOOM_ON_MARKERS' => 0.5,
+    'MAP_WG_CENTER_AND_ZOOM_ON_MARKERS_ZOOM' => 10,
+
+
+./yii/travelmap/protected/views/destination/WGMap.php
+
+31a32
+>                         $arr_map_config['CENTER_AND_ZOOM_ON_MARKERS_ZOOM'] = $map_config['MAP_WG_CENTER_AND_ZOOM_ON_MARKERS_ZOOM'];
+
+
+./yii/travelmap/protected/views/destination/destinationMap.php
+
+26a27
+>                         $arr_map_config['CENTER_AND_ZOOM_ON_MARKERS_ZOOM'] = $map_config['MAP_WG_CENTER_AND_ZOOM_ON_MARKERS_ZOOM'];
+
+
+
+gss - rYBKQ7hI8BipsqosDU4ahvVfQOh0IsHv3UO7FH4aczyKy8VuGMHjKSWhifgzUi
+
+
+OaFerUKJf48qlmEmstCNWAf3ht907cjlUgjbCHMmldehOImv8kZkbykNUulVMG
+
+--------------------------------- Travel changes --------------------------------------
+
+
+------------------------ hadoop ---------------------------------
+
+
+
+ssh-keygen -t dsa -P '' -f ~/.ssh/id_dsa
+
+-t type
+ 	Specifies the type of key to create.  The possible values are “rsa1” for protocol version 1 and “dsa”, “ecdsa”, “ed25519”, or “rsa” for protocol version 2.
+
+-P passphrase
+    Provides the (old) passphrase.
+
+
+-f filename
+	Specifies the filename of the key file.
+
+
+cat ~/.ssh/id_dsa.pub >> ~/.ssh/authorized_keys
+
+
+To disable IPV 6
+
+sudo vim /etc/sysctl.conf
+
+add lines below:
+
+	# disable ipv6
+	net.ipv6.conf.all.disable_ipv6 = 1
+	net.ipv6.conf.default.disable_ipv6 = 1
+	net.ipv6.conf.lo.disable_ipv6 = 1
+
+
+> check
+
+	cat /proc/sys/net/ipv6/conf/all/disable_ipv6
+
+	return 1 for disabled
+
+
+------------------------ hadoop ---------------------------------
+
+
+------------------------ Dated:- 4-feb-2015 ------------------------
+
+
+
+------------------------ Dated:- 4-feb-2015 ------------------------
+
+
+arg_apache_group - -g www-data
+
+& arg_apache_conf - -c /etc/apache2/apache2.conf
+
+& arg_apache_ctl -  -t /usr/sbin/apache2ctl
+
+& apache_cmd -  -a /usr/sbin/apache2
+
+
+
+sudo ./install.sh -g www-data -c /etc/apache2/apache2.conf -t /usr/sbin/apache2ctl -a /usr/sbin/apache2
+
+
+
+
+arg_apache_group - www-data & arg_apache_conf - /etc/apache2/apache2.conf & arg_apache_ctl - /usr/sbin/apache2ctl & apache_cmd - /usr/sbin/apache2
