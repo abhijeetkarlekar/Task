@@ -1,0 +1,20 @@
+# Includes daily tasks
+
+# 19 march 2015
+1. Guzzle Http Client
+	a. set create request options
+	b. set future response
+
+	Use curl, streaming with synchronous/asynchronous http request.
+
+# 25 march 2015
+1. R&D on Sifarish.
+	same and different entities distance calculation using different minoski algorithm with sample datas from knowledge base.
+
+# 14 april 2015
+1. R&D on Seldonio.
+	seldonio virtual machine setup on local environment with a movie demo.
+
+# 25 may 2015
+1. php/java bridge poc.
+2. boiler pipe web service to integrate in solr content/description cleaning.
