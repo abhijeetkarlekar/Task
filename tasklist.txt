@@ -1095,7 +1095,30 @@ arg_apache_group - -g www-data
 
 sudo ./install.sh -g www-data -c /etc/apache2/apache2.conf -t /usr/sbin/apache2ctl -a /usr/sbin/apache2
 
-
-
-
 arg_apache_group - www-data & arg_apache_conf - /etc/apache2/apache2.conf & arg_apache_ctl - /usr/sbin/apache2ctl & apache_cmd - /usr/sbin/apache2
+
+------------------------ Dated:- 24-june-2015 ------------------------
+
+> Solr search with Apostrophes :
+
+    >> EnglishPossessiveFilterFactory filter is added in schema.xml as provided
+
+        <filter class="solr.EnglishPossessiveFilterFactory"/>
+
+        Reference Url: https://github.com/documentcloud/documentcloud/issues/133
+
+        Pocket Tags: Apostrophes
+
+------------------------ Dated:- 24-june-2015 ------------------------
+
+------------------------ Dated:- 25-june-2015 ------------------------
+
+------------------------ Dated:- 25-june-2015 ------------------------
+
+------------------------ Dated:- 26-june-2015 ------------------------
+
+------------------------ Dated:- 26-june-2015 ------------------------
+
+------------------------ Dated:- 29-june-2015 ------------------------
+
+------------------------ Dated:- 29-june-2015 ------------------------
